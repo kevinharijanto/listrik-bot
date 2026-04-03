@@ -1,0 +1,16 @@
+services:
+  listrik-bot:
+    build: .
+    container_name: listrik-bot
+    restart: unless-stopped
+    # Uncomment for local mode (LAN access to Tuya device)
+    # network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
