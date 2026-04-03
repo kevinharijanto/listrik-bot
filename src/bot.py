@@ -135,9 +135,9 @@ async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if days_remaining < 1:
             hours_remaining = days_remaining * 24
-            lines.append(f"⏰ Estimated: ~{esc(hours_remaining, '.0f')} hours remaining")
+            lines.append(f"⏰ Estimated: \\~{esc(hours_remaining, '.0f')} hours remaining")
         else:
-            lines.append(f"📅 Estimated: ~{esc(days_remaining, '.1f')} days remaining")
+            lines.append(f"📅 Estimated: \\~{esc(days_remaining, '.1f')} days remaining")
         lines.append(f"📆 Empty on : {esc(est_date.strftime('%b %d, %Y %H:%M'))}")
     else:
         lines.append("📊 Daily Avg: _Not enough data yet_")
@@ -339,14 +339,14 @@ async def send_low_balance_alert(context, balance, reading):
             est = datetime.now() + timedelta(hours=hours_left)
             lines.append(f"📊 Daily Average: {esc(daily_avg, '.1f')} kWh/day")
             lines.append(
-                f"⏰ Estimated Empty: ~{esc(hours_left, '.0f')} hours "
+                f"⏰ Estimated Empty: \\~{esc(hours_left, '.0f')} hours "
                 f"\\({esc(est.strftime('%b %d, %H:%M'))}\\)"
             )
         else:
             est = datetime.now() + timedelta(days=days_left)
             lines.append(f"📊 Daily Average: {esc(daily_avg, '.1f')} kWh/day")
             lines.append(
-                f"⏰ Estimated Empty: ~{esc(days_left, '.1f')} days "
+                f"⏰ Estimated Empty: \\~{esc(days_left, '.1f')} days "
                 f"\\({esc(est.strftime('%b %d, %Y'))}\\)"
             )
 
